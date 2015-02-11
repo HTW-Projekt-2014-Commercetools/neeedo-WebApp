@@ -227,23 +227,56 @@ needed -->
 
 <script id="demand-template" type="text/x-handlebars-template">
     <div class="item active">
-        <img src="..." alt="...">
-    
         <h3>{{firstDemand.id}}</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-    
+        <ul>
+            {{#each firstDemand.mustTags}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        
+        <p>sollte haben:</p>
+        <ul>
+            {{#each firstDemand.shouldTags}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+
+        <p>Preis:</p>
+
+        <ul>
+            <li>von: {{price.min}}</li>
+            <li>von: {{price.max}}</li>
+        </ul>
+
+
         <div class="carousel-caption">
             ...
         </div>
     </div>
     {{#each demands}}
         <div class="item">
-            <img src="..." alt="...">
+            <h3>{{id}}</h3>
+            
+            <p>muss haben:</p>
+            <ul>
+                {{#each mustTags}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            
+            <p>sollte haben:</p>
+            <ul>
+                {{#each shouldTags}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
 
-                <h3>{{id}}</h3>
-                <p>...</p>
-                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            <p>Preis:</p>
+            
+            <ul>
+                <li>von: {{price.min}}</li>
+                <li>von: {{price.max}}</li>
+            </ul>
 
             <div class="carousel-caption">
                 ...
