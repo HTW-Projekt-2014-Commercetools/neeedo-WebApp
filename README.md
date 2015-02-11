@@ -8,7 +8,7 @@ WebApp Prototyp
 Live-Prototype
 ----------
 
-https://neeedo-webapp.herokuapp.com
+http://neeedo-webapp.herokuapp.com
 
 
 Installation
