@@ -32,12 +32,13 @@
     background-color: #718A94;
 }
 
-#topContainer {
+#mainContainer {
     height:400px;
     width:100%;
     background-image:url("../images/background.jpg");
     background-size:cover;
 }
+
 
 #topRow {
     margin-top:100px;
@@ -46,6 +47,11 @@
 
 #topRow h1 {
     font-size:300%;
+}
+
+.topContainer .row{
+    margin-top: 100px;
+    color: #88BEB1;
 }
 
 .contentContainer .row{
