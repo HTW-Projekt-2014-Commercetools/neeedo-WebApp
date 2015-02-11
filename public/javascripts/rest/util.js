@@ -15,6 +15,7 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
     var successAlertDiv = '#success_alert_placeholder';
     var errorAlertDiv = '#error_alert_placeholder';
     var demandsTemplate = '#demand-template';
+    var noDemandsTemplate = '#no-demands-template';
     var carouselInner = '#innerCarousel';
 
     de.neeedo.webapp.rest.Util = function() {
@@ -64,6 +65,10 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
     }
 
     de.neeedo.webapp.rest.Util.prototype.prepareDemandTemplate = function(demands) {
+        if (0 == demands.length) {
+            return this.showNoDemands();
+        }
+        
         var source   = $(demandsTemplate).html();
         var template = Handlebars.compile(source);
 
@@ -85,6 +90,15 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
         return html;
     }
 
+    de.neeedo.webapp.rest.Util.prototype.showNoDemands =  function() {
+        var source = $(noDemandsTemplate).html();
+        var template = Handlebars.compile(source);
+
+        var html = template({});
+
+        return html;
+    }
+    
     de.neeedo.webapp.rest.Util.prototype.renderTemplate = function(renderedHtml) {
         $(carouselInner).html(renderedHtml);
     }

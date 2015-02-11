@@ -245,7 +245,7 @@ needed -->
 
         <ul>
             <li>von: {{price.min}}</li>
-            <li>von: {{price.max}}</li>
+            <li>bis: {{price.max}}</li>
         </ul>
 
 
@@ -275,7 +275,7 @@ needed -->
             
             <ul>
                 <li>von: {{price.min}}</li>
-                <li>von: {{price.max}}</li>
+                <li>bis: {{price.max}}</li>
             </ul>
 
             <div class="carousel-caption">
@@ -283,6 +283,12 @@ needed -->
             </div>
         </div>
     {{/each}}
+</script>
+
+<script id="no-demands-template" type="text/x-handlebars-template">
+    <div class="item active">
+        Aktuell gibt es keine Gesuche. Mit dem '+' - Button oben rechts kannst du sofort loslegen.
+    </div>
 </script>
 
 
