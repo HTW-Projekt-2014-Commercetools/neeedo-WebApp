@@ -16,6 +16,7 @@
     <![endif]-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script lang="javascript" type="text/javascript" src="javascripts/lib/handlebars-v3.0.0.js"></script>
     <script lang="javascript" type="text/javascript" src="javascripts/rest/options.js"></script>
     <script lang="javascript" type="text/javascript" src="javascripts/rest/util.js"></script>
     <script lang="javascript" type="text/javascript" src="javascripts/rest/demands.js"></script>
@@ -217,11 +218,28 @@
 
 <!-- Include all compiled plugins (below), or include individual files as
 needed -->
-<script src="javascripts/bootstrap.min.js"></script>
+<script src="javascripts/lib/bootstrap.min.js"></script>
 
 <script>
 
     $(".contentContainer").css("min-height", $(window).height());
 </script>
+
+<script id="demand-template" type="text/x-handlebars-template">
+    <div class="item">
+        <img src="..." alt="...">
+
+        <div class="demand">
+            <h3>Thumbnail label</h3>
+            <p>...</p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+        <div class="carousel-caption">
+            ...
+        </div>
+    </div>
+</script>
+
+
 </body>
 </html>
