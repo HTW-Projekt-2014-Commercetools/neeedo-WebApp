@@ -14,6 +14,8 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
 (function() {
     var successAlertDiv = '#success_alert_placeholder';
     var errorAlertDiv = '#error_alert_placeholder';
+    var demandsTemplate = '#demand-template';
+    var carouselInner = '#innerCarousel';
 
     de.neeedo.webapp.rest.Util = function() {
               
@@ -53,6 +55,39 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
         $(errorAlertDiv).html('<div class="alert alert-error"><a href="#" class="close" data-dismiss="alert">&times;</a><p id="successMessage"><strong>Fehler!</strong> ' + message + '</p></div>');
     }
 
+    de.neeedo.webapp.rest.Util.prototype.renderDemands = function(demands) {
+        renderedHtml = this.prepareDemandTemplate(demands);
+        
+        console.log('demand template:');
+        console.log(renderedHtml);
+        this.renderTemplate(renderedHtml);
+    }
+
+    de.neeedo.webapp.rest.Util.prototype.prepareDemandTemplate = function(demands) {
+        var source   = $(demandsTemplate).html();
+        var template = Handlebars.compile(source);
+
+        // define placeholders that will be replaced
+        
+        var firstDemand = undefined;
+        if ((demands.length > 0)) {
+            firstDemand = demands[0];
+        }
+        
+        var otherDemands = [];
+        for (i = 1; i < demands.length; i++) {
+             otherDemands[i-1] = demands[i];
+        }
+        
+        var context = {firstDemand: firstDemand, demands : otherDemands};
+        var html    = template(context);
+
+        return html;
+    }
+
+    de.neeedo.webapp.rest.Util.prototype.renderTemplate = function(renderedHtml) {
+        $(carouselInner).html(renderedHtml);
+    }
 
     // singleton
     de.neeedo.webapp.rest.util = new de.neeedo.webapp.rest.Util();

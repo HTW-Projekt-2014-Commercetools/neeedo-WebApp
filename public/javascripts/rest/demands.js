@@ -176,7 +176,11 @@ if (typeof jQuery === 'undefined') {
 
     de.neeedo.webapp.rest.demands.DemandsConnector.prototype.showDemands = function(responseData)
     {
-        for (pos in responseData.demands) {
+        var demands = responseData.demands;
+        // render
+        __this.restUtil.renderDemands(demands);
+        
+        for (pos in demands) {
             __this.showSingleDemand(responseData.demands[pos]);
         }
     }

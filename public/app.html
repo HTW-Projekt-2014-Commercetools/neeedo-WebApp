@@ -182,7 +182,7 @@
             </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner" role="listbox" id="innerCarousel">
                 <div class="item active">
                     <img src="..." alt="...">
 
@@ -226,18 +226,30 @@ needed -->
 </script>
 
 <script id="demand-template" type="text/x-handlebars-template">
-    <div class="item">
+    <div class="item active">
         <img src="..." alt="...">
-
-        <div class="demand">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
+    
+        <h3>{{firstDemand.id}}</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    
         <div class="carousel-caption">
             ...
         </div>
     </div>
+    {{#each demands}}
+        <div class="item">
+            <img src="..." alt="...">
+
+                <h3>{{id}}</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+
+            <div class="carousel-caption">
+                ...
+            </div>
+        </div>
+    {{/each}}
 </script>
 
 
