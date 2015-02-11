@@ -14,8 +14,7 @@ notifications:
 deploy:
   provider: heroku
   api_key:
-    secure: WTfZdvlarFSLhNOQDn5MrYJEb51fwZkZ5SS8dEsItlGoyDNJ3PriYQ8d9s6/1pn4zOoQ2bGO6WV0zYy2jU7HZSZbpX8v9aiL0tsMiHC9SH1WSXd+Ox9Fn+lUjaLjaTJMiBeiHtsb4TLWPoQ/DfBMpElDOV7tftYW6aU7BtW4Kb4=
-  app: neeedo-webapp
+    secure: RGOOvtd08safEwxbopdpJPpTSjbXl0PreR97Lg006EPsZkx5yajJID7873RmxEFTV0mSJf4JD+MfdzPqnRpC9Uys3wiWaPdAHlpnGszOobOq7WRLPUWU+AaaxiE4e/AlZa3suJE4yEMHxa5jL4AeA65k08WErVqo+Sz5b80DdEQ=
+  app: neeedo-WebApp
   on:
-    branch: master
-    repo: anotherSasFeld/deploymentExample
+    repo: HTW-Projekt-2014-Commercetools/neeedo-WebApp
