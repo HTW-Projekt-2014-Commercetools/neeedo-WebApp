@@ -301,11 +301,71 @@ needed -->
     {{/each}}
 </script>
 
+<script id="offer-template" type="text/x-handlebars-template">
+
+    <div class="item active">
+        <div class="carousel-item">
+
+            <h3>Angebote die auf deine Suche passen:</h3>
+            <hr/>
+            <div class="panel panel-default">
+                <div class="panel-heading"> Der Artikel:</div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each firstOffer.tags}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="panel-heading"> Preis:</div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li>{{firstOffer.price}} <span class="glyphicon glyphicon-euro"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{#each offers}}
+    <div class="item">
+        <div class="carousel-item row">
+            <h3>Angebote die auf deine Suche passen:</h3>
+            <hr/>
+
+            <div class="panel panel-default">
+                <div class="panel-heading"> Der Artikel:</div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each tags}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="panel-heading"> Preis</div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li>{{price}} <span class="glyphicon glyphicon-euro"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
 <script id="no-demands-template" type="text/x-handlebars-template">
     <div class="item active">
         Aktuell gibt es keine Gesuche. Mit dem '+' - Button oben rechts kannst du sofort loslegen.
     </div>
 </script>
+
+<script id="no-offers-template" type="text/x-handlebars-template">
+    <div class="item active">
+        Aktuell gibt es keine passenden Angebote auf dein Gesucht.
+    </div>
+</script>
+
 
 <script>
     $('.navbar-collapse ul li a').click(function(){

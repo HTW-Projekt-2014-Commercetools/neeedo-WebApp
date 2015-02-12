@@ -13,7 +13,7 @@ this.de.neeedo.webapp.rest = this.de.neeedo.webapp.rest || {};
 this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
 
 (function() {
-   // var baseUrl = 'http://localhost:9000';
+    //var baseUrl = 'http://localhost:9000';
     var baseUrl = 'http://178.62.252.23:9000';
 
     de.neeedo.webapp.rest.options = {      
@@ -21,7 +21,8 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
             base : baseUrl,
             createDemand : baseUrl + '/demands',
             createOffer : baseUrl + '/offers',
-            listAllDemands : baseUrl + '/matching/demands'
+            listAllDemands : baseUrl + '/matching/demands',
+            listMatchingOffers: baseUrl + '/matching/demand/0/0'
         }
     };
     

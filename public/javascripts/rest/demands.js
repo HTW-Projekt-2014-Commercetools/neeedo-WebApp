@@ -95,7 +95,7 @@ if (typeof jQuery === 'undefined') {
         // TODO do something with returned demand
         
         // refresh view of all demands
-        this.getAllDemands();
+        this.getMatchingOffers(demand)
     }
 
     de.neeedo.webapp.rest.demands.DemandsConnector.prototype.createDemand = function() {
@@ -161,6 +161,46 @@ if (typeof jQuery === 'undefined') {
         });
     }
 
+    de.neeedo.webapp.rest.demands.DemandsConnector.prototype.getMatchingOffers = function(demand) {
+        var url = this.connectionOptions.urls.listMatchingOffers;
+
+        var _this = this;
+
+        var demandJson = JSON.stringify(demand);
+
+        $.ajax({
+            type : "POST",
+            url : url,
+            data : demandJson,
+            contentType : "application/json",
+            success : _this.onMatchOfferSuccess,
+            error : _this.onMatchOfferError
+        });
+    }
+
+    de.neeedo.webapp.rest.demands.DemandsConnector.prototype.onMatchOfferSuccess = function(responseData, textStatus, xhr) {
+        if (200 == xhr.status) {
+            __this.showOffers(responseData.matches.matching);
+        } else {
+            __this.restUtil.showError('Could not get matching offers');
+
+            console.log('onMatchOfferSuccess:');
+            console.log(xhr);
+            console.log(responseData);
+            console.log('');
+        }
+    }
+
+    de.neeedo.webapp.rest.demands.DemandsConnector.prototype.onMatchOfferError = function(xhr, ajaxOptions,
+                                                                                          thrownError) {
+        alert('Could not get matching offers.');
+        console.log('onMatchOfferError:');
+        console.log(xhr);
+        console.log(thrownError);
+        console.log('');
+    }
+
+
     de.neeedo.webapp.rest.demands.DemandsConnector.prototype.onGetAllDemmandsSuccess = function(responseData, textStatus, xhr) {
         if (200 == xhr.status) {
             __this.showDemands(responseData);
@@ -185,12 +225,31 @@ if (typeof jQuery === 'undefined') {
         }
     }
 
+    de.neeedo.webapp.rest.demands.DemandsConnector.prototype.showOffers = function(offers)
+    {
+        // render
+        __this.restUtil.renderOffers(offers);
+
+        for (pos in offers) {
+            __this.showSingleOffer(offers[pos]);
+        }
+    }
+
     de.neeedo.webapp.rest.demands.DemandsConnector.prototype.showSingleDemand = function(demand)
     {
         // TODO render as container and display in view
         
         console.log('demand... ');
         console.log(demand);      
+        console.log('');
+    }
+
+    de.neeedo.webapp.rest.demands.DemandsConnector.prototype.showSingleOffer = function(offer)
+    {
+        // TODO render as container and display in view
+
+        console.log('offer... ');
+        console.log(offer);
         console.log('');
     }
 

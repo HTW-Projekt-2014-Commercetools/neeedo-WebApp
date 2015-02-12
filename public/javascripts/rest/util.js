@@ -16,6 +16,8 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
     var errorAlertDiv = '#error_alert_placeholder';
     var demandsTemplate = '#demand-template';
     var noDemandsTemplate = '#no-demands-template';
+    var offersTemplate = '#offer-template';
+    var noOffersTemplate = '#no-offers-template';
     var carouselInner = '#innerCarousel';
 
     de.neeedo.webapp.rest.Util = function() {
@@ -64,6 +66,14 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
         this.renderTemplate(renderedHtml);
     }
 
+    de.neeedo.webapp.rest.Util.prototype.renderOffers = function(offers) {
+            renderedHtml = this.prepareOfferTemplate(offers);
+
+            console.log('offer template:');
+            console.log(renderedHtml);
+            this.renderTemplate(renderedHtml);
+    }
+
     de.neeedo.webapp.rest.Util.prototype.prepareDemandTemplate = function(demands) {
         if (0 == demands.length) {
             return this.showNoDemands();
@@ -90,8 +100,43 @@ this.de.neeedo.webapp.rest.demands = this.de.neeedo.webapp.rest.demands || {};
         return html;
     }
 
+    de.neeedo.webapp.rest.Util.prototype.prepareOfferTemplate = function(offers) {
+        if (offers.length == 0) {
+            return this.showNoOffers();
+        }
+
+        var source   = $(offersTemplate).html();
+        var template = Handlebars.compile(source);
+
+        // define placeholders that will be replaced
+
+        var firstOffer = undefined;
+        if ((offers.length > 0)) {
+            firstOffer = offers[0];
+        }
+
+        var otherOffers = [];
+        for (i = 1; i < offers.length; i++) {
+             otherOffers[i-1] = offers[i];
+        }
+
+        var context = {firstOffer: firstOffer, offers : otherOffers};
+        var html    = template(context);
+
+        return html;
+    }
+
     de.neeedo.webapp.rest.Util.prototype.showNoDemands =  function() {
         var source = $(noDemandsTemplate).html();
+        var template = Handlebars.compile(source);
+
+        var html = template({});
+
+        return html;
+    }
+
+    de.neeedo.webapp.rest.Util.prototype.showNoOffers =  function() {
+        var source = $(noOffersTemplate).html();
         var template = Handlebars.compile(source);
 
         var html = template({});
