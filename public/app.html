@@ -26,57 +26,64 @@
 
     <link href="stylesheets/neeedo-naturalize.css" rel="stylesheet">
 
+    <style>
+
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
 
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" data-toggle="collapse" datatarget=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand"><img id="brandImage" src="images/neeedo_blue.png"/></a>
-        </div>
-
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#topContainer">Home</a></li>
-                <li><a href="index.html#details">About</a></li>
-                <li><a href="index.html#footer">Download The App</a></li>
-            </ul>
-            <div class="nav navbar-nav navbar-right">
-                <button class="btn-default btn centered" data-toggle="modal" data-target="#searchModal"><span
-                        class="glyphicon glyphicon-search"></span></button>
-                <button class="btn-default btn centered" data-toggle="modal" data-target="#addModal"><span
-                        class="glyphicon glyphicon-plus"></span></button>
+<!--Navbar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"><img src="images/neeedo_blue.png"/></a>
             </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#mainContainer">Home</a></li>
+                    <li><a href="index.html#detailsContainer">About</a></li>
+                    <li><a href="index.html#appContainer">Download The App</a></li>
+                 </ul>
+
+                <div class="nav navbar-nav navbar-right">
+                    <button class="btn-default btn centered" data-toggle="modal" data-target="#searchModal"><span
+                            class="glyphicon glyphicon-search"></span> Gesuch</button>
+                    <button class="btn-default btn centered" data-toggle="modal" data-target="#addModal"><span
+                            class="glyphicon glyphicon-plus"></span> Angebot</button>
+                </div><!--/.navbar-right-->
+            </div><!-- /.navbar-collapse -->
         </div>
-    </div>
-</div>
+    </div><!-- /.container-fluid -->
+</nav>
+
 
 <!-- Create Demand -->
 <div class="container ">
-    <div class="modal  fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
-         aria-hidden="true">
+    <div class="modal  fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content search">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="searchModalLabel">Ich suche...</h4>
                 </div>
 
                 <div class="modal-body">
                     <label for="mustTagsDemand">muss haben</label>
-                    <input class="form-control" id="mustTagsDemand" type="text" value="klappriges,fahrrad"
-                           placeholder="Titel"/>
+                    <input class="form-control" id="mustTagsDemand" type="text" value="klappriges,fahrrad" placeholder="Titel"/>
 
                     <label for="shouldTagsDemand">sollte haben</label>
-                    <input class="form-control" id="shouldTagsDemand" type="text" value="ledersattel,licht"
-                           placeholder="Titel"/>
+                    <input class="form-control" id="shouldTagsDemand" type="text" value="ledersattel,licht" placeholder="Titel"/>
 
                     <input type="hidden" id="latDemand" value="13.534212"/>
 
@@ -111,7 +118,7 @@
                     <div class="row" id="demandsSuccess"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">speichern</button>
+                 <!--   <button type="button" class="btn btn-default" data-dismiss="modal">speichern</button>-->
                     <button type="button" id="btnCreateDemand" class="btn btn-primary">abschicken</button>
                 </div>
             </div>
@@ -126,8 +133,7 @@
         <div class="modal-dialog">
             <div class="modal-content offer">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Ich biete</h4>
                 </div>
                 <div class="modal-body">
@@ -146,7 +152,7 @@
                     <div class="row" id="offersSuccess"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">speichern</button>
+                 <!--   <button type="button" class="btn btn-default" data-dismiss="modal">speichern</button>-->
                     <button type="button" id="btnCreateOffer" class="btn btn-primary">abschicken</button>
                 </div>
             </div>
@@ -157,22 +163,28 @@
     <!-- /.modal -->
 </div>
 
-<!-- !! do not remove, toast messages are shown here!!! -->
-<div class="container contentContainer" id="mainContainer">
-    <div class="container">
-        <div class="row">
-            <!-- success messages -->
-            <div id="success_alert_placeholder">
-    
-            </div>
-            <!-- error messages -->
-            <div id="error_alert_placeholder">
-    
+<div class="container"> <!--alerts-->
+    <!-- !! do not remove, toast messages are shown here!!! -->
+    <div class="container center" id="alertContainer">
+        <div class="container">
+            <div class="row">
+                <!-- success messages -->
+                <div id="success_alert_placeholder">
+
+                </div>
+                <!-- error messages -->
+                <div id="error_alert_placeholder">
+
+                </div>
             </div>
         </div>
     </div>
-    <!-- Carousel-->
-    <div class="container contentContainer" id="middleContainer">
+</div><!--alerts-->
+
+<div class="container" id="topContainer">
+
+    <div class="container contentContainer"  >    <!-- Carousel-->
+
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -184,14 +196,11 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox" id="innerCarousel">
                 <div class="item active">
-                    <img src="..." alt="...">
-
                     <div class="carousel-caption">
                         ...
                     </div>
                 </div>
                 <div class="item">
-                    <img src="..." alt="...">
 
                     <div class="carousel-caption">
                         ...
@@ -210,8 +219,9 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div>
+    </div>    <!-- Carousel-->
 </div>
+
 
 
 
@@ -226,61 +236,75 @@ needed -->
 </script>
 
 <script id="demand-template" type="text/x-handlebars-template">
+
     <div class="item active">
-        <h3>{{firstDemand.id}}</h3>
-        <ul>
-            {{#each firstDemand.mustTags}}
-            <li>{{this}}</li>
-            {{/each}}
-        </ul>
-        
-        <p>sollte haben:</p>
-        <ul>
-            {{#each firstDemand.shouldTags}}
-            <li>{{this}}</li>
-            {{/each}}
-        </ul>
+        <div class="carousel-item">
 
-        <p>Preis:</p>
-
-        <ul>
-            <li>von: {{price.min}}</li>
-            <li>von: {{price.max}}</li>
-        </ul>
-
-
-        <div class="carousel-caption">
-            ...
-        </div>
-    </div>
-    {{#each demands}}
-        <div class="item">
-            <h3>{{id}}</h3>
-            
-            <p>muss haben:</p>
+            <h3>{{firstDemand.id}}</h3>
+            <p>muss haben</p>
             <ul>
-                {{#each mustTags}}
+                {{#each firstDemand.mustTags}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
-            
+
             <p>sollte haben:</p>
             <ul>
-                {{#each shouldTags}}
+                {{#each firstDemand.shouldTags}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
 
             <p>Preis:</p>
-            
+
             <ul>
                 <li>von: {{price.min}}</li>
-                <li>von: {{price.max}}</li>
+                <li>bis: {{price.max}}</li>
             </ul>
+        </div>
+    </div>
 
-            <div class="carousel-caption">
-                ...
+    {{#each demands}}
+        <div class="item card">
+            <div class="row">
+                <div class="carousel-item">
+
+                    <h3> Ich suche: {{id}}</h3>
+
+                    <hr/>
+
+                </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading"> Der Artikel muss haben:</div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each mustTags}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"> Der Artikel sollte haben:</div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each shouldTags}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+
+
+            <p>Preis:</p>
+            
+            <ul class="list-inline">
+                <li>von: {{price.min}} <span class="glyphicon glyphicon-euro"></span></li>
+                <li>bis: {{price.max}} <span class="glyphicon glyphicon-euro"></span></li>
+
+            </ul>
         </div>
     {{/each}}
 </script>
