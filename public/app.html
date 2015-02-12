@@ -240,14 +240,31 @@ needed -->
     <div class="item active">
         <div class="carousel-item">
 
+        <p>Preis:</p>
+
+        <ul>
+            <li>von: {{price.min}}</li>
+            <li>bis: {{price.max}}</li>
+        </ul>
+
+
+        <div class="carousel-caption">
+            ...
+        </div>
+    </div>
+    {{#each demands}}
+        <div class="item">
+            <h3>{{id}}</h3>
+            
+            <p>muss haben:</p>
             <h3>{{firstDemand.id}}</h3>
             <p>muss haben</p>
             <ul>
-                {{#each firstDemand.mustTags}}
+                {{#each mustTags}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
-
+            
             <p>sollte haben:</p>
             <ul>
                 {{#each firstDemand.shouldTags}}
@@ -256,7 +273,7 @@ needed -->
             </ul>
 
             <p>Preis:</p>
-
+            
             <ul>
                 <li>von: {{price.min}}</li>
                 <li>bis: {{price.max}}</li>
@@ -307,6 +324,12 @@ needed -->
             </ul>
         </div>
     {{/each}}
+</script>
+
+<script id="no-demands-template" type="text/x-handlebars-template">
+    <div class="item active">
+        Aktuell gibt es keine Gesuche. Mit dem '+' - Button oben rechts kannst du sofort loslegen.
+    </div>
 </script>
 
 
