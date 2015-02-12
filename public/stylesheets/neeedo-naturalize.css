@@ -56,9 +56,22 @@
     margin-top: 10%;
 }
 .card{
+    min-height: 60%;
+    padding: 10%;
+    padding-top: 0%;
+    background-color: #00d4b4;
+    border-radius: 5px;
+}
+
+.carousel-item > h3{
+    color: #88BEB1;
+}
+.carousel-item{
     padding-left: 10%;
     padding-right: 10%;
 }
+
+
 /*Buttons*/
 .btn-default {
     background-color: #88BEB1;

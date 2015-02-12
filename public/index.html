@@ -142,5 +142,16 @@ needed -->
     $(".contentContainer").css("min-height",$(window).height());
 
 </script>
+
+<script>
+    $('.navbar-collapse ul li a').click(function(){
+        $('.navbar-toggle:visible').click();
+    });
+
+    $('.navbar-right button').click(function(){
+        $('.navbar-toggle:visible').click();
+    })
+</script>
+
 </body>
 </html>
