@@ -79,11 +79,11 @@
                 </div>
 
                 <div class="modal-body">
-                    <label for="mustTagsDemand">muss haben</label>
-                    <input class="form-control" id="mustTagsDemand" type="text" value="klappriges,fahrrad" placeholder="Titel"/>
+                    <label for="mustTagsDemand">Der Artikel muss unbedingt haben:</label>
+                    <input class="form-control" id="mustTagsDemand" type="text" placeholder="fahrrad, klapprig"/>
 
-                    <label for="shouldTagsDemand">sollte haben</label>
-                    <input class="form-control" id="shouldTagsDemand" type="text" value="ledersattel,licht" placeholder="Titel"/>
+                    <label for="shouldTagsDemand">und sollte wenn möglich haben</label>
+                    <input class="form-control" id="shouldTagsDemand" type="text" placeholder="ledersattel,licht"/>
 
                     <input type="hidden" id="latDemand" value="13.534212"/>
 
@@ -113,13 +113,17 @@
                     <label for="maxPriceDemand">Max. Distanz</label>
                     <input type="number" id="maxDistanceDemand" class="form-control" placeholder="bis"/>
 
-                    <div class="row" id="demandsError"></div>
-
-                    <div class="row" id="demandsSuccess"></div>
                 </div>
                 <div class="modal-footer">
+                    <div class="col-md-6">
+                        <div class="row " id="demandsError"></div>
+
+                        <div class="row " id="demandsSuccess"></div>
+                    </div>
+                    <div class="col-md-6">
                  <!--   <button type="button" class="btn btn-default" data-dismiss="modal">speichern</button>-->
                     <button type="button" id="btnCreateDemand" class="btn btn-primary">abschicken</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,7 +142,7 @@
                 </div>
                 <div class="modal-body">
                     <label for="tagsOffer">Tags: </label>
-                    <input class="form-control" id="tagsOffer" type="text" value="tag1,tag2,..." placeholder="Titel"/>
+                    <input class="form-control" id="tagsOffer" type="text" placeholder="tag1,tag2,..."/>
 
                     <label for="priceOffer">Preis: </label>
                     <input type="number" id="priceOffer" class="form-control" placeholder="Preis"/>
@@ -147,13 +151,19 @@
 
                     <input type="hidden" id="lonOffer" value="52.468562"/>
 
+
+                </div>
+                <div class="modal-footer">
+
+                    <div class="col-md-6">
                     <div class="row" id="offersError"></div>
 
                     <div class="row" id="offersSuccess"></div>
-                </div>
-                <div class="modal-footer">
+                    </div>
+                    <div class="col-md-6">
                  <!--   <button type="button" class="btn btn-default" data-dismiss="modal">speichern</button>-->
                     <button type="button" id="btnCreateOffer" class="btn btn-primary">abschicken</button>
+                    </div>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -233,11 +243,11 @@ needed -->
 <script id="demand-template" type="text/x-handlebars-template">
 
     <div class="item active">
-        <div class="carousel-item">
+        <div class="carousel-item ">
 
-            <h3>{{firstDemand.id}}</h3>
+            <h3>Ich suche</h3>
             <hr/>
-            <div class="panel panel-default">
+            <div class="panel panel-default search">
                 <div class="panel-heading"> Der Artikel muss haben:</div>
                 <div class="panel-body">
                     <ul>
@@ -267,34 +277,34 @@ needed -->
 
     {{#each demands}}
     <div class="item">
-        <div class="carousel-item row">
-            <h3> {{id}}</h3>
-            <hr/>
+        <div class="carousel-item row ">
+            <h3> Ich suche </h3>
+                <hr/>
 
-            <div class="panel panel-default">
-                <div class="panel-heading"> Der Artikel muss haben:</div>
-                <div class="panel-body">
-                    <ul>
-                        {{#each mustTags}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <div class="panel-heading"> Der Artikel sollte haben:</div>
-                <div class="panel-body">
-                    <ul>
-                        {{#each shouldTags}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <div class="panel-heading"> Preis</div>
-                <div class="panel-body">
-                    <ul class="list-inline">
-                        <li>von: {{price.min}} <span class="glyphicon glyphicon-euro"></span></li>
-                        <li>bis: {{price.max}} <span class="glyphicon glyphicon-euro"></span></li>
-                    </ul>
-                </div>
+                <div class="panel panel-default search">
+                    <div class="panel-heading"> Der Artikel muss haben:</div>
+                    <div class="panel-body">
+                        <ul>
+                            {{#each mustTags}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="panel-heading"> Der Artikel sollte haben:</div>
+                    <div class="panel-body">
+                        <ul>
+                            {{#each shouldTags}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="panel-heading"> Preis</div>
+                    <div class="panel-body">
+                        <ul class="list-inline">
+                            <li>von: {{price.min}} <span class="glyphicon glyphicon-euro"></span></li>
+                            <li>bis: {{price.max}} <span class="glyphicon glyphicon-euro"></span></li>
+                        </ul>
+                    </div>
             </div>
         </div>
     </div>
@@ -304,11 +314,11 @@ needed -->
 <script id="offer-template" type="text/x-handlebars-template">
 
     <div class="item active">
-        <div class="carousel-item">
+        <div class="carousel-item ">
 
             <h3>Angebote die auf deine Suche passen:</h3>
             <hr/>
-            <div class="panel panel-default">
+            <div class="panel panel-default offer">
                 <div class="panel-heading"> Der Artikel:</div>
                 <div class="panel-body">
                     <ul>
@@ -332,8 +342,7 @@ needed -->
         <div class="carousel-item row">
             <h3>Angebote die auf deine Suche passen:</h3>
             <hr/>
-
-            <div class="panel panel-default">
+            <div class="panel panel-default offer">
                 <div class="panel-heading"> Der Artikel:</div>
                 <div class="panel-body">
                     <ul>
