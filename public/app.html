@@ -51,7 +51,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#mainContainer">Home</a></li>
+                    <li class="active"><a href="#topContainer">Home</a></li>
                     <li><a href="index.html#detailsContainer">About</a></li>
                     <li><a href="index.html#appContainer">Download The App</a></li>
                  </ul>
@@ -240,31 +240,14 @@ needed -->
     <div class="item active">
         <div class="carousel-item">
 
-        <p>Preis:</p>
-
-        <ul>
-            <li>von: {{price.min}}</li>
-            <li>bis: {{price.max}}</li>
-        </ul>
-
-
-        <div class="carousel-caption">
-            ...
-        </div>
-    </div>
-    {{#each demands}}
-        <div class="item">
-            <h3>{{id}}</h3>
-            
-            <p>muss haben:</p>
             <h3>{{firstDemand.id}}</h3>
             <p>muss haben</p>
             <ul>
-                {{#each mustTags}}
+                {{#each firstDemand.mustTags}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
-            
+
             <p>sollte haben:</p>
             <ul>
                 {{#each firstDemand.shouldTags}}
@@ -273,7 +256,7 @@ needed -->
             </ul>
 
             <p>Preis:</p>
-            
+
             <ul>
                 <li>von: {{price.min}}</li>
                 <li>bis: {{price.max}}</li>
@@ -282,47 +265,47 @@ needed -->
     </div>
 
     {{#each demands}}
-        <div class="item card">
-            <div class="row">
-                <div class="carousel-item">
+    <div class="item card">
+        <div class="row">
+            <div class="carousel-item">
 
-                    <h3> Ich suche: {{id}}</h3>
+                <h3> Ich suche: {{id}}</h3>
 
-                    <hr/>
+                <hr/>
 
-                </div>
             </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading"> Der Artikel muss haben:</div>
-                <div class="panel-body">
-                    <ul>
-                        {{#each mustTags}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading"> Der Artikel sollte haben:</div>
-                <div class="panel-body">
-                    <ul>
-                        {{#each shouldTags}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-
-
-            <p>Preis:</p>
-            
-            <ul class="list-inline">
-                <li>von: {{price.min}} <span class="glyphicon glyphicon-euro"></span></li>
-                <li>bis: {{price.max}} <span class="glyphicon glyphicon-euro"></span></li>
-
-            </ul>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"> Der Artikel muss haben:</div>
+            <div class="panel-body">
+                <ul>
+                    {{#each mustTags}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"> Der Artikel sollte haben:</div>
+            <div class="panel-body">
+                <ul>
+                    {{#each shouldTags}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+
+        <p>Preis:</p>
+
+        <ul class="list-inline">
+            <li>von: {{price.min}} <span class="glyphicon glyphicon-euro"></span></li>
+            <li>bis: {{price.max}} <span class="glyphicon glyphicon-euro"></span></li>
+
+        </ul>
+    </div>
     {{/each}}
 </script>
 
